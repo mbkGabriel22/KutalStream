@@ -3,10 +3,8 @@ import 'package:http/http.dart' as http;
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:kutal_stream_app/core/errors/server_exception.dart';
-import 'package:kutal_stream_app/core/errors/server_failure.dart';
 import 'package:kutal_stream_app/data/datasources/movie_remote_data_source.dart';
 import 'package:kutal_stream_app/data/datasources/remote/movie_remote_data_source_impl.dart';
-import 'package:kutal_stream_app/domain/entities/Movie.dart';
 
 import 'movie_remote_data_source_test.mocks.dart';
 
