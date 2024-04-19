@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   final bckImage =
-      'https://w0.peakpx.com/wallpaper/732/875/HD-wallpaper-anonymous-black-cool-dark-guy-foux-hacker-scary-tech.jpg';
+      'https://www.pexels.com/fr-fr/photo/abstrait-colore-d-etoile-de-nuit-4021521/';
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class HomeScreen extends StatelessWidget {
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             Text(
-              'TDD - Movie App',
+              'KutalStream',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ],
@@ -75,8 +75,8 @@ class HomeScreen extends StatelessWidget {
                                     BorderRadius.circular(20), // Border radius
                               ),
                             ),
-                            child: const Text(
-                                '▶️ Learn Flutter with Flutter Guys'),
+                            child:
+                                const Text('▶️ Détendez-vous et explorer !!!'),
                           ),
                         ],
                       ),
