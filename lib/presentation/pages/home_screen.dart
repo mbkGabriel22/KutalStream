@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:kutal_stream_app/presentation/bloc/discover_tv_show/discover_tv_show_bloc.dart';
+import 'package:kutal_stream_app/presentation/bloc/discover_tv_show/discover_tv_show_event.dart';
+import 'package:kutal_stream_app/presentation/bloc/discover_tv_show/discover_tv_show_state.dart';
 import 'package:kutal_stream_app/presentation/bloc/popular_movies/popular_movies_bloc.dart';
 import 'package:kutal_stream_app/presentation/bloc/popular_movies/popular_movies_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kutal_stream_app/presentation/bloc/trending_movies/trending_movies_bloc.dart';
 import 'package:kutal_stream_app/presentation/bloc/trending_movies/trending_movies_state.dart';
 import 'package:kutal_stream_app/presentation/pages/movies_list.dart';
+import 'package:kutal_stream_app/presentation/widgets/tv_show_caroussel.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -49,42 +53,17 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Tv show carrousel
-              Container(
-                height: 290,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: NetworkImage(bckImage),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                child: Stack(
-                  children: <Widget>[
-                    Positioned(
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              foregroundColor: Colors.white,
-                              backgroundColor:
-                                  Color.fromARGB(255, 18, 151, 174),
-                              shape: RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.circular(20), // Border radius
-                              ),
-                            ),
-                            child:
-                                const Text('▶️ Détendez-vous et explorer !!!'),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+              BlocBuilder<TrendingMoviesBloc, TrendingMoviesState>(
+                builder: (context, state) {
+                  if (state is TrendingMoviesLoading) {
+                    return const CircularProgressIndicator();
+                  } else if (state is TrendingMoviesLoaded) {
+                    return TvShowCaroussel(movies: state.movies);
+                  } else if (state is TrendingMoviesError) {
+                    return Text(state.message);
+                  }
+                  return Container();
+                },
               ),
               const SizedBox(
                 height: 30,

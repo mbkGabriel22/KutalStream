@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kutal_stream_app/injection_contenair.dart';
+import 'package:kutal_stream_app/presentation/bloc/discover_tv_show/discover_tv_show_bloc.dart';
+import 'package:kutal_stream_app/presentation/bloc/discover_tv_show/discover_tv_show_event.dart';
 import 'package:kutal_stream_app/presentation/bloc/popular_movies/popular_movies_bloc.dart';
 import 'package:kutal_stream_app/presentation/bloc/popular_movies/popular_movies_event.dart';
 import 'package:kutal_stream_app/presentation/bloc/search_movies/search_movies_bloc.dart';
@@ -30,6 +32,10 @@ class MyApp extends StatelessWidget {
           BlocProvider(
             create: (context) =>
                 getIt<TrendingMoviesBloc>()..add(FetchTrendingMovies()),
+          ),
+          BlocProvider(
+            create: (context) =>
+                getIt<DiscoverTvShowBloc>()..add(FetchDiscoverTvShow()),
           ),
           BlocProvider(
             create: (context) => getIt<SearchMoviesBloc>(),

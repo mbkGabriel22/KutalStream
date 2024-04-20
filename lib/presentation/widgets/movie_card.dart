@@ -13,11 +13,11 @@ class MovieCard extends StatelessWidget {
       margin: const EdgeInsets.all(5),
       clipBehavior: Clip.antiAliasWithSaveLayer,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
+        borderRadius: BorderRadius.circular(12.0),
       ),
       child: SizedBox(
-        height: 200,
-        width: 200,
+        height: 150,
+        width: 100,
         child: Ink.image(
           image: NetworkImage(
               'https://image.tmdb.org/t/p/w500/${movie.posterPath}'),

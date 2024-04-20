@@ -3,29 +3,49 @@ import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 import 'package:kutal_stream_app/domain/entities/Movie.dart';
 
 class TvShowCaroussel extends StatelessWidget {
-  const TvShowCaroussel(this.movie, {super.key});
+  const TvShowCaroussel({super.key, required this.movies});
 
-  final Movie movie;
+  final List<Movie> movies;
 
   @override
   Widget build(BuildContext context) {
     return FlutterCarousel(
       options: CarouselOptions(
-        height: 400.0,
+        height: 200.0,
         showIndicator: true,
-        slideIndicator: const CircularSlideIndicator(),
+        indicatorMargin: 1.0,
+        slideIndicator: const CircularSlideIndicator(
+          itemSpacing: 12,
+          indicatorRadius: 2.0,
+          currentIndicatorColor: Colors.blue,
+          indicatorBorderWidth: 8,
+        ),
+        enableInfiniteScroll: true,
+        allowImplicitScrolling: true,
+        initialPage: 0,
+        reverse: true,
+        autoPlay: true,
+        autoPlayInterval: const Duration(seconds: 5),
+        autoPlayAnimationDuration: const Duration(milliseconds: 700),
+        autoPlayCurve: Curves.easeInCubic,
+        enlargeCenterPage: true,
       ),
-      items: [1, 2, 3, 4, 5].map((i) {
+      items: movies.map((i) {
         return Builder(
           builder: (BuildContext context) {
             return Container(
-                width: MediaQuery.of(context).size.width,
-                margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                decoration: const BoxDecoration(color: Colors.amber),
-                child: Text(
-                  'text $i',
-                  style: const TextStyle(fontSize: 16.0),
-                ));
+              width: MediaQuery.of(context).size.width,
+              margin: const EdgeInsets.symmetric(horizontal: 2.0),
+              decoration: const BoxDecoration(
+                  color: Colors.white10,
+                  borderRadius: BorderRadius.all(Radius.circular(10.0))),
+              clipBehavior: Clip.none,
+              child: Ink.image(
+                image: NetworkImage(
+                    'https://image.tmdb.org/t/p/w500/${i.posterPath}'),
+                fit: BoxFit.cover,
+              ),
+            );
           },
         );
       }).toList(),
