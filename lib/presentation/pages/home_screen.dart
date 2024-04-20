@@ -48,7 +48,7 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Default Image
+              // Tv show carrousel
               Container(
                 height: 290,
                 decoration: BoxDecoration(

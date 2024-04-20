@@ -48,4 +48,17 @@ class MovieRepositoryImpl implements MovieRepository {
       return Left(ServerFailure());
     }
   }
+
+  @override
+  Future<Either<ServerFailure, List<Movie>>> getDiscoverTvShow() async {
+    try {
+      final List<MovieModel> movieModels =
+          await remoteDataSource.getDiscoverTvShow();
+      final List<Movie> movies =
+          movieModels.map((model) => model.toEntity()).toList();
+      return Right(movies);
+    } catch (e) {
+      return Left(ServerFailure());
+    }
+  }
 }
