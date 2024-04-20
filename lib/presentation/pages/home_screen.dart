@@ -7,7 +7,7 @@ import 'package:kutal_stream_app/presentation/bloc/trending_movies/trending_movi
 import 'package:kutal_stream_app/presentation/pages/movies_list.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   final bckImage =
       'https://www.pexels.com/fr-fr/photo/abstrait-colore-d-etoile-de-nuit-4021521/';
@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Hi MBK 👋',
+              'Bonjour MBK 👋',
               textAlign: TextAlign.start,
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
@@ -44,6 +44,7 @@ class HomeScreen extends StatelessWidget {
       body: Container(
         color: Colors.black,
         child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
