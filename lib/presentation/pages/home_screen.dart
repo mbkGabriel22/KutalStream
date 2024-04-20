@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
         centerTitle: false,
         elevation: 0,
         toolbarHeight: 100,
-        backgroundColor: Colors.black,
+        backgroundColor: Color.fromARGB(255, 0, 0, 0),
         title: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -70,7 +70,8 @@ class HomeScreen extends StatelessWidget {
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
                               foregroundColor: Colors.white,
-                              backgroundColor: Colors.red,
+                              backgroundColor:
+                                  Color.fromARGB(255, 18, 151, 174),
                               shape: RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.circular(20), // Border radius

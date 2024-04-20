@@ -5,7 +5,7 @@ import 'package:kutal_stream_app/presentation/widgets/movie_card.dart';
 class MoviesList extends StatelessWidget {
   final List<Movie> movies;
 
-  const MoviesList({Key? key, required this.movies}) : super(key: key);
+  const MoviesList({super.key, required this.movies});
 
   @override
   Widget build(BuildContext context) {

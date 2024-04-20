@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kutal_stream_app/domain/entities/Movie.dart';
 
 class MovieCard extends StatelessWidget {
-  MovieCard(this.movie, {super.key});
+  const MovieCard(this.movie, {super.key});
 
   final Movie movie;
 
@@ -19,7 +19,8 @@ class MovieCard extends StatelessWidget {
         height: 200,
         width: 200,
         child: Ink.image(
-          image: NetworkImage('https://image.tmdb.org/t/p/w500/${movie.posterPath}'),
+          image: NetworkImage(
+              'https://image.tmdb.org/t/p/w500/${movie.posterPath}'),
           fit: BoxFit.cover,
         ),
       ),
