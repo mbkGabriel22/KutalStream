@@ -3,6 +3,7 @@ import 'package:kutal_stream_app/data/datasources/movie_remote_data_source.dart'
 import 'package:kutal_stream_app/data/datasources/remote/movie_remote_data_source_impl.dart';
 import 'package:kutal_stream_app/data/repositories/movie_repository_impl.dart';
 import 'package:kutal_stream_app/domain/repositories/movie_repository.dart';
+import 'package:kutal_stream_app/domain/usecases/get_discover_TvShow.dart';
 import 'package:kutal_stream_app/domain/usecases/get_popular_movies.dart';
 import 'package:kutal_stream_app/domain/usecases/get_trending_movies.dart';
 import 'package:kutal_stream_app/domain/usecases/search_movie.dart';
@@ -24,7 +25,7 @@ void init() {
   // Use cases
   getIt.registerLazySingleton(() => GetPopularMovies(getIt()));
   getIt.registerLazySingleton(() => GetTrendingMovies(getIt()));
-  getIt.registerLazySingleton(() => GetPopularMovies(getIt()));
+  getIt.registerLazySingleton(() => GetDiscoverTvShow(getIt()));
   getIt.registerLazySingleton(() => SearchMovies(getIt()));
 
   // Repositories
