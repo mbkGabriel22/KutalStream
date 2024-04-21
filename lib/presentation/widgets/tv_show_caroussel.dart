@@ -17,7 +17,7 @@ class TvShowCaroussel extends StatelessWidget {
         slideIndicator: const CircularSlideIndicator(
           itemSpacing: 12,
           indicatorRadius: 2.0,
-          currentIndicatorColor: Colors.blue,
+          currentIndicatorColor: Color.fromRGBO(20, 124, 166, 1),
           indicatorBorderWidth: 8,
         ),
         enableInfiniteScroll: true,
