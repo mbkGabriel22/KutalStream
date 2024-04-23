@@ -101,6 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 children: [
                   Container(
+                    color: Colors.black,
                     margin: const EdgeInsets.only(top: 15),
                     width: size.width,
                     height: size.height * 0.05,
@@ -142,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             width: changeContainerWidth(),
                             height: size.height * 0.008,
                             decoration: BoxDecoration(
-                              color: Colors.deepPurpleAccent,
+                              color: Colors.blue,
                               borderRadius: BorderRadius.circular(5),
                             ),
                             duration: const Duration(milliseconds: 1000),
@@ -152,87 +153,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                   ),
-                  Padding(
+                  /*Padding(
                     padding: EdgeInsets.only(top: size.height * 0.3),
                     child: Text(
                       "${tabs[current]} Tab Content",
                       style: GoogleFonts.ubuntu(fontSize: 30),
                     ),
-                  )
+                  )*/
                 ],
               )),
-          Container(
-            color: Colors.black,
-            child: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Tv show carrousel
-                  BlocBuilder<TrendingMoviesBloc, TrendingMoviesState>(
-                    builder: (context, state) {
-                      if (state is TrendingMoviesLoading) {
-                        return const CircularProgressIndicator();
-                      } else if (state is TrendingMoviesLoaded) {
-                        return TvShowCaroussel(movies: state.movies);
-                      } else if (state is TrendingMoviesError) {
-                        return Text(state.message);
-                      }
-                      return Container();
-                    },
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-
-                  // Trending Movies
-                  const Text(
-                    'Trending Movies',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  BlocBuilder<TrendingMoviesBloc, TrendingMoviesState>(
-                    builder: (context, state) {
-                      if (state is TrendingMoviesLoading) {
-                        return const CircularProgressIndicator();
-                      } else if (state is TrendingMoviesLoaded) {
-                        return MoviesList(movies: state.movies);
-                      } else if (state is TrendingMoviesError) {
-                        return Text(state.message);
-                      }
-                      return Container();
-                    },
-                  ),
-
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  // Popular Movies
-                  const Text(
-                    'Popular Movies',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  BlocBuilder<PopularMoviesBloc, PopularMoviesState>(
-                    builder: (context, state) {
-                      if (state is PopularMoviesLoading) {
-                        return const CircularProgressIndicator();
-                      } else if (state is PopularMoviesLoaded) {
-                        return MoviesList(movies: state.movies);
-                      } else if (state is PopularMoviesError) {
-                        return Text(state.message);
-                      }
-                      return Container();
-                    },
-                  ),
-                ],
-              ),
-            ),
-          ),
+          tabs[current],
         ],
       ),
       bottomNavigationBar: const MybottomNavBar(),
