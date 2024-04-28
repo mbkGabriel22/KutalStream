@@ -7,8 +7,9 @@ class SerieScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
+    return Container(
+      color: Colors.white,
+      child: Center(
         child: Text(
           ' Serie',
           style: GoogleFonts.quicksand(

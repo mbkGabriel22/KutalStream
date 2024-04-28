@@ -9,10 +9,9 @@ import 'package:kutal_stream_app/presentation/bloc/popular_movies/popular_movies
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kutal_stream_app/presentation/bloc/trending_movies/trending_movies_bloc.dart';
 import 'package:kutal_stream_app/presentation/bloc/trending_movies/trending_movies_state.dart';
-import 'package:kutal_stream_app/presentation/pages/films_screen.dart';
 import 'package:kutal_stream_app/presentation/pages/movies_list.dart';
-import 'package:kutal_stream_app/presentation/pages/serie_screen.dart';
-import 'package:kutal_stream_app/presentation/pages/tv_show_screen.dart';
+import 'package:kutal_stream_app/presentation/pages/homeScreen/SeriesScreen.dart';
+import 'package:kutal_stream_app/presentation/pages/homeScreen/TvShowScreen.dart';
 import 'package:kutal_stream_app/presentation/widgets/bottom_nav_bar.dart';
 import 'package:kutal_stream_app/presentation/widgets/movie_card.dart';
 import 'package:kutal_stream_app/presentation/widgets/tv_show_caroussel.dart';
