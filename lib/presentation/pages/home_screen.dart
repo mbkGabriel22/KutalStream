@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kutal_stream_app/presentation/bloc/discover_tv_show/discover_tv_show_bloc.dart';
 import 'package:kutal_stream_app/presentation/bloc/discover_tv_show/discover_tv_show_event.dart';
@@ -26,33 +27,35 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        centerTitle: false,
-        elevation: 0,
-        toolbarHeight: 100,
-        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
-        title: const Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Bonjour MBK 👋',
-              textAlign: TextAlign.start,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-            Text(
-              'KutalStream',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-          ],
+        title: const Text('Bonjour MBK'),
+        leading: Container(
+          padding: const EdgeInsets.all(8.0),
+          child: Image.asset(
+              'assets/logos/kutal_logo.png'), // Replace with your logo path
         ),
         actions: const [
-          Padding(
-            padding: EdgeInsets.all(20),
-            child: Icon(Icons.search),
+          CircleAvatar(
+            backgroundImage: NetworkImage(
+                'https://www.pexels.com/photo/smiling-woman-with-red-hair-1987301/'), // Replace with user avatar URL
           ),
         ],
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(kToolbarHeight + 20.0),
+          child: Container(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'Rechercher...',
+                prefixIcon: const Icon(Icons.search),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
       body: Container(
         color: Colors.black,
@@ -100,11 +103,33 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
 
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
               // Popular Movies
               const Text(
                 'Popular Movies',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+              ),
+              BlocBuilder<PopularMoviesBloc, PopularMoviesState>(
+                builder: (context, state) {
+                  if (state is PopularMoviesLoading) {
+                    return const CircularProgressIndicator();
+                  } else if (state is PopularMoviesLoaded) {
+                    return MoviesList(movies: state.movies);
+                  } else if (state is PopularMoviesError) {
+                    return Text(state.message);
+                  }
+                  return Container();
+                },
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              const Text(
+                'Tv shows',
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,

@@ -11,7 +11,7 @@ class TvShowCaroussel extends StatelessWidget {
   Widget build(BuildContext context) {
     return FlutterCarousel(
       options: CarouselOptions(
-        height: 200.0,
+        height: 180.0,
         showIndicator: true,
         indicatorMargin: 1.0,
         slideIndicator: const CircularSlideIndicator(
