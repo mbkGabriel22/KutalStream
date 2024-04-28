@@ -17,76 +17,9 @@ class MyHome extends StatefulWidget {
 class _MyHomeState extends State<MyHome> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.black,
-      child: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Tv show carrousel
-            BlocBuilder<TrendingMoviesBloc, TrendingMoviesState>(
-              builder: (context, state) {
-                if (state is TrendingMoviesLoading) {
-                  return const CircularProgressIndicator();
-                } else if (state is TrendingMoviesLoaded) {
-                  return TvShowCaroussel(movies: state.movies);
-                } else if (state is TrendingMoviesError) {
-                  return Text(state.message);
-                }
-                return Container();
-              },
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-
-            // Trending Movies
-            const Text(
-              'Trending Movies',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold),
-            ),
-            BlocBuilder<TrendingMoviesBloc, TrendingMoviesState>(
-              builder: (context, state) {
-                if (state is TrendingMoviesLoading) {
-                  return const CircularProgressIndicator();
-                } else if (state is TrendingMoviesLoaded) {
-                  return MoviesList(movies: state.movies);
-                } else if (state is TrendingMoviesError) {
-                  return Text(state.message);
-                }
-                return Container();
-              },
-            ),
-
-            const SizedBox(
-              height: 20,
-            ),
-            // Popular Movies
-            const Text(
-              'Popular Movies',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold),
-            ),
-            BlocBuilder<PopularMoviesBloc, PopularMoviesState>(
-              builder: (context, state) {
-                if (state is PopularMoviesLoading) {
-                  return const CircularProgressIndicator();
-                } else if (state is PopularMoviesLoaded) {
-                  return MoviesList(movies: state.movies);
-                } else if (state is PopularMoviesError) {
-                  return Text(state.message);
-                }
-                return Container();
-              },
-            ),
-          ],
-        ),
+    return Scaffold(
+      body: Center(
+        child: Text(" Hello Word"),
       ),
     );
   }

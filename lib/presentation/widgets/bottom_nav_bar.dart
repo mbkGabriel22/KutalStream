@@ -55,6 +55,14 @@ class MybottomNavBar extends StatelessWidget {
                   color: Color.fromRGBO(140, 3, 104, 1),
                 ),
               ),
+              GButton(
+                icon: FontAwesomeIcons.gear,
+                text: 'Settings',
+                textStyle: TextStyle(
+                  fontWeight: FontWeight.w400,
+                  color: Color.fromRGBO(140, 3, 104, 1),
+                ),
+              ),
             ]),
       ),
     );
