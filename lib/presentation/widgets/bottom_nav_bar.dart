@@ -24,9 +24,9 @@ class MybottomNavBar extends StatelessWidget {
             hoverColor: Color.fromARGB(62, 77, 77, 77),
             tabBackgroundGradient: LinearGradient(colors: [
               Colors.black,
-              Color.fromRGBO(126, 55, 107, 1),
+              Color.fromRGBO(55, 163, 206, 0.902),
             ], begin: Alignment.center, end: Alignment.bottomCenter),
-            activeColor: Color.fromRGBO(140, 3, 104, 1),
+            activeColor: Color.fromRGBO(20, 124, 166, 1),
             iconSize: 20,
             tabBackgroundColor: Colors.black12,
             padding: EdgeInsets.all(5),

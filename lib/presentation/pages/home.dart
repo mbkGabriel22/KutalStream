@@ -22,7 +22,7 @@ class _MyHomeState extends State<MyHome> {
       length: 4,
       child: Scaffold(
         appBar: AppBar(
-          elevation: 22,
+          elevation: 18,
           titleSpacing: 2,
           backgroundColor: Colors.black,
           leading: IconButton(
